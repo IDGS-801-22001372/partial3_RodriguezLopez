@@ -93,6 +93,13 @@ def create_app():
     def dashboard():
         return render_template('dashboard.html')
     
+    #Pagina principal
+    @app.route('/usuarios', methods=['GET', 'POST'])
+    @login_required
+    def usuarios():
+        users = User.query.all()
+        return render_template('usuarios.html', users=users)
+    
     @app.route('/logout', methods=['GET', 'POST'])
     @login_required
     def logout():

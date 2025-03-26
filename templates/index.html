@@ -4,10 +4,10 @@
 
 {% block content %}
 <div class="bg-white shadow-md rounded-lg p-8">
-    <h1 class="text-2xl font-bold text-center mb-6">Autenticación con Flask</h1>
+    <h1 class="text-2xl font-bold text-center mb-6">Bienvenido</h1>
     <div class="flex flex-col gap-4">
-        <a href="{{ url_for('login') }}" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-center">Login</a>
-        <a href="{{ url_for('register') }}" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded text-center">Registro</a>
+        <a href="{{ url_for('auth.login') }}" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded text-center">Login</a>
+        <a href="{{ url_for('auth.register') }}" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded text-center">Registro</a>
     </div>
 </div>
 {% endblock %}

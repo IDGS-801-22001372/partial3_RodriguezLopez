@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Proveedores{% endblock %}
+
+{% block page_content %}
+    <h1 class="text-2xl font-bold mb-4 text-center text-gray-700">Lista de Proveedores</h1>
+
+    <div class="text-right mb-4">
+        <a href="{{ url_for('proveedores.agregar_proveedor') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Agregar Proveedor</a>
+    </div>
+
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg mx-auto max-w-4xl">
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th scope="col" class="py-3 px-6">Nombre</th>
+                    <th scope="col" class="py-3 px-6">Empresa</th>
+                    <th scope="col" class="py-3 px-6">Correo</th>
+                    <th scope="col" class="py-3 px-6">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for proveedor in proveedores %}
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="py-4 px-6">{{ proveedor.nombre }}</td>
+                    <td class="py-4 px-6">{{ proveedor.empresa }}</td>
+                    <td class="py-4 px-6">{{ proveedor.correo }}</td>
+                    <td class="py-4 px-6">
+                        <a href="{{ url_for('proveedores.editar_proveedor', id=proveedor.id) }}" class="text-blue-500 hover:text-blue-700">Editar</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center py-4">No hay proveedores registrados</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
